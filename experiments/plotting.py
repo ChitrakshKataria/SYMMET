@@ -2,9 +2,13 @@ import matplotlib.pyplot as plt
 import torch
 import numpy as np
 
+def CirclePlot(X):
+    plt.figure()
+    plt.scatter(X[:, 0], X[:, 1], s=1)
+    plt.savefig("plots/RawGeneratedData.png")
 
 
-#### AI Generated Plots ####
+################################### AI Generated Plots ################################
 def ModelComp(*models):
     metrics = [
         "train_loss",
@@ -27,7 +31,7 @@ def ModelComp(*models):
         ax[i].grid(True)
 
     plt.tight_layout()
-    plt.savefig("Final.png")
+    plt.savefig("plots/Final.png")
 
     
 def DecisionBoundaries(X, y, *models):
@@ -93,5 +97,35 @@ def DecisionBoundaries(X, y, *models):
         ax[i].set_aspect("equal")
 
     plt.tight_layout()
-    plt.savefig("DecisionBoundaries.png")
+    plt.savefig("plots/DecisionBoundaries.png")
+    plt.show()
+    
+    
+def SampleEfficiencyPlot(dataset_sizes, results):
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    for name, accuracies in results.items():
+        ax.plot(
+            dataset_sizes,
+            accuracies,
+            marker="o",
+            label=name
+        )
+
+    ax.set_title("Sample Efficiency Comparison")
+    ax.set_xlabel("Number of Training Examples")
+    ax.set_ylabel("Test Accuracy (%)")
+
+    ax.set_xscale("log")
+    ax.set_ylim(0, 105)
+
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+
+    ### Save plot
+    plt.savefig( "plots/SampleEfficiency.png")
+
     plt.show()

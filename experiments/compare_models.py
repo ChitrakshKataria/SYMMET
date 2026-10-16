@@ -46,7 +46,7 @@ def ReserchLoopSequential(device):
     resultC = train_loop(model=ModelC, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
     final.append(resultC)
 
-    return final, X_test, y_test
+    return final, X_test, y_test, X
 
 def ReserchLoopParalell(device):
     """

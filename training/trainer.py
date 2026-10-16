@@ -22,6 +22,7 @@ def train_loop(model,
         y_train (torch.Tensor): Training labels (0 or 1).
         X_test (torch.Tensor): Testing input fetures.
         y_test (torch.Tensor): Testing labels (0 or 1).
+        device (Object): Device model will be running on
         epochs (int): Number of iterations on training data. Defaults to 100.
         lr (float): Learning Rate for the Adam optimizer. Defaults to 0.001.
         batch_size (int): Number of samples per mini-batch. Defaults to 128.

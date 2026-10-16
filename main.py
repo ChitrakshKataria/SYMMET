@@ -1,13 +1,10 @@
 import torch
 import torch_directml
 
-
-
 from models.baseline_mlp import BaselineMLP
 from experiments.compare_models import ReserchLoopSequential
-from experiments.plotting import ModelComp, DecisionBoundaries
-
-
+from experiments.plotting import ModelComp, DecisionBoundaries, SampleEfficiencyPlot, CirclePlot
+from experiments.sample_efficiency import sample_Efficiency_Sequential
 
 ### Device agnostic code (GPU is not required on a dataset this small)
 def get_device(force_cpu=False):
@@ -28,6 +25,13 @@ def get_device(force_cpu=False):
 device = get_device(force_cpu=True)
 print(f"Using device: {device}")
 
-result, X_test, y_test = ReserchLoopSequential(device)
+### Running Experiments
+## 1
+result, X_test, y_test, X = ReserchLoopSequential(device)
 ModelComp(*result)
 DecisionBoundaries(X_test, y_test, *result)
+CirclePlot(X)
+
+## 2
+result2 = sample_Efficiency_Sequential(device=device)
+SampleEfficiencyPlot(result2[0], result2[1])
