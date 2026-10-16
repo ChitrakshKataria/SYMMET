@@ -1,8 +1,12 @@
+from torch import nn
+import torch
+
 def train_loop(model,
                X_train,
                y_train,
                X_test,
                y_test,
+               device,
                epochs=100,
                lr=0.001,
                batch_size=128):
@@ -91,7 +95,7 @@ def train_loop(model,
 
             
             ### Accuracy
-            predicted_class = Sigmoid(train_logits)
+            predicted_class = torch.sigmoid(train_logits).round()
             correct_predictions += (predicted_class == y_batch.unsqueeze(1)).sum().item()
 
             ### Store training loss
@@ -109,7 +113,7 @@ def train_loop(model,
 
         with torch.no_grad():
             test_logits = running_model(X_test)
-            test_preds = Sigmoid(test_logits)
+            test_preds = torch.sigmoid(test_logits).round()
 
             ### Test accuracy
             test_accuracy = (test_preds == y_test.unsqueeze(1)).float().mean() * 100

@@ -37,6 +37,24 @@ plt.scatter(X[:, 0], X[:, 1], s=2)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42, shuffle=True)
 
 
+def ReserchLoopSequential(device):
+    final = []
+    resultA = train_loop(model=ModelA, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
+    final.append(resultA)
+    resultB = train_loop(model=ModelB, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
+    final.append(resultB)
+    resultC = train_loop(model=ModelC, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
+    final.append(resultC)
+
+    return final, X_test, y_test
+
+def ReserchLoopParalell(device):
+    """
+    WILL ADD LATER
+    """
+    pass
+
+
 
 
 

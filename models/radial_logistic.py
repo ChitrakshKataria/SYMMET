@@ -15,7 +15,3 @@ class RadialLogisticRegression(nn.Module): ## Simple linear classifier using rad
         x = self.layer(radius)
         return x
 
-
-def Sigmoid(logits: torch.tensor): 
-    return (torch.sigmoid(logits) >= 0.5)
-

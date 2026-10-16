@@ -2,7 +2,11 @@ import torch
 import torch_directml
 
 
+
 from models.baseline_mlp import BaselineMLP
+from experiments.compare_models import ReserchLoopSequential
+from experiments.plotting import ModelComp, DecisionBoundaries
+
 
 
 ### Device agnostic code (GPU is not required on a dataset this small)
@@ -22,4 +26,8 @@ def get_device(force_cpu=False):
     return torch.device("cpu")
 
 device = get_device(force_cpu=True)
+print(f"Using device: {device}")
 
+result, X_test, y_test = ReserchLoopSequential(device)
+ModelComp(*result)
+DecisionBoundaries(X_test, y_test, *result)
