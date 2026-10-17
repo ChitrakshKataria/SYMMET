@@ -98,10 +98,10 @@ def DecisionBoundaries(X, y, *models):
 
     plt.tight_layout()
     plt.savefig("plots/DecisionBoundaries.png")
-    plt.show()
+    #plt.show()
     
     
-def SampleEfficiencyPlot(dataset_sizes, results):
+def SampleEfficiencyPlot(dataset_sizes, results, filename="SampleEfficiency_With_10Seeds"):
 
     fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -113,7 +113,10 @@ def SampleEfficiencyPlot(dataset_sizes, results):
             label=name
         )
 
-    ax.set_title("Sample Efficiency Comparison")
+    if filename == "SampleEfficiency_With_10Seeds":
+        ax.set_title("Average Sample Efficiency Comparison (Iterated over 10 diffrent seeds)")
+    else:
+        ax.set_title("Sample Efficiency Comparison (Iterated over Seed 42)")
     ax.set_xlabel("Number of Training Examples")
     ax.set_ylabel("Test Accuracy (%)")
 
@@ -126,6 +129,6 @@ def SampleEfficiencyPlot(dataset_sizes, results):
     plt.tight_layout()
 
     ### Save plot
-    plt.savefig( "plots/SampleEfficiency.png")
+    plt.savefig( f"plots/{filename}.png")
 
-    plt.show()
+    #plt.show()

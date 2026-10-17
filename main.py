@@ -35,3 +35,4 @@ CirclePlot(X)
 ## 2
 result2 = sample_Efficiency_Sequential(device=device)
 SampleEfficiencyPlot(result2[0], result2[1])
+SampleEfficiencyPlot(result2[0], result2[2],filename="SampleEfficiencySeed42")

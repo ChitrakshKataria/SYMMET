@@ -39,12 +39,16 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random
 
 def ReserchLoopSequential(device):
     final = []
+    print(f"Running MODELA")
     resultA = train_loop(model=ModelA, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
     final.append(resultA)
+    print(f"Runnign MODELB")
     resultB = train_loop(model=ModelB, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
     final.append(resultB)
+    print(f"Runnign MODELC")
     resultC = train_loop(model=ModelC, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, device=device, epochs=20)
     final.append(resultC)
+    print("Experemnet 1 done...")
 
     return final, X_test, y_test, X
 
