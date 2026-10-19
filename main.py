@@ -1,5 +1,4 @@
 import torch
-import torch_directml
 
 from models.baseline_mlp import BaselineMLP
 from experiments.compare_models import ReserchLoopSequential
@@ -7,7 +6,16 @@ from experiments.plotting import ModelComp, DecisionBoundaries, SampleEfficiency
 from experiments.sample_efficiency import sample_Efficiency_Sequential
 
 ### Device agnostic code (GPU is not required on a dataset this small)
-def get_device(force_cpu=False):
+def get_device(force_cpu=True):
+    """
+    Automaticly selects the most suitable device for the model training and inference.
+
+    Args: 
+        force_cpu (Bool): True, forces the use of CPU even if a GPU is avalable. Defaults to false
+    Returns:
+        torch.device: The selected device (CPU, Cuda or another supported backend)
+    """
+    
     if force_cpu:
         return torch.device("cpu")
     if torch.cuda.is_available(): ## NVIDIA

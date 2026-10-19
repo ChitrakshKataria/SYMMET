@@ -3,8 +3,18 @@ import torch
 import numpy as np
 
 def CirclePlot(X):
-    plt.figure()
+    """
+    Plots a scatter graph of the raw input data
+
+    Args: 
+        X (torch.tensor): The raw input data moddels will be training one
+    Return:
+        .png file of the ploted scatter graph
+    """
+
+    plt.figure(figsize=(8, 8))
     plt.scatter(X[:, 0], X[:, 1], s=1)
+    plt.gca().set_aspect("equal", adjustable="box") ## This stops matplotlib from streching the plot.
     plt.savefig("plots/RawGeneratedData.png")
 
 
@@ -98,7 +108,7 @@ def DecisionBoundaries(X, y, *models):
 
     plt.tight_layout()
     plt.savefig("plots/DecisionBoundaries.png")
-    #plt.show()
+    #plt.show() 
     
     
 def SampleEfficiencyPlot(dataset_sizes, results, filename="SampleEfficiency_With_10Seeds"):

@@ -35,7 +35,7 @@ def train_loop(model,
             test_accuracy (list[flot]): Testing accuracy (%) per epoch.
     """
     
-    ### Transfering the training and testing data to the GPU if required
+    ### Transfering the training and testing data to the device
     X_train = X_train.to(device)
     y_train = y_train.to(device)
 
@@ -46,7 +46,7 @@ def train_loop(model,
     running_model  = model.to(device)
 
 
-    ### Hyperparamaters loop
+    ### Hyperparamaters
     epochs = epochs
     lr = lr
     batch = batch_size
