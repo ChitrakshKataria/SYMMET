@@ -7,7 +7,7 @@ def train_loop(model,
                X_test,
                y_test,
                device,
-               epochs=100,
+               epochs=20,
                lr=0.001,
                batch_size=128):
     """
