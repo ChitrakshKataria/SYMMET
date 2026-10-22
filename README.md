@@ -1,10 +1,10 @@
 # SYMMET - Symmetry-Aware Machine Learning
 
-## Reserch Question
+## Research Question
 Can geometric knowledge improve neural network sample efficiency? 
 
 ## Hypothesis
-Model with geometric iductive bias will lean circular classification boundaries using a smaller dataset, causing the training to be both cheeper and faster.
+Model with geometric inductive bias will learn circular classification boundaries using a smaller dataset, causing the training to be both cheaper and faster.
 
 ## Models
 - A: Baseline MLP -> 337 Parameters
