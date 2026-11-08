@@ -1,5 +1,7 @@
 # SYMMET - Symmetry-Aware Machine Learning
 
+## Research Paper
+At: [SYMMET - Symmetry-Aware Machine Learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7650698)
 ## Research Question
 Can geometric knowledge improve neural network sample efficiency? 
 
