@@ -1,5 +1,5 @@
 # SYMMET - Symmetry-Aware Machine Learning
-Disclamer: This paper was developed independently without reference to any prior research and makes no claim of originality; its findings are alredy established as core concepts in machine learning.
+DISCLAIMER: This paper was developed independently without reference to any prior research and makes no claim of originality; its findings are alredy established as core concepts in machine learning.
 
 ## Research Paper Available
 At: [SYMMET - Symmetry-Aware Machine Learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7650698)
